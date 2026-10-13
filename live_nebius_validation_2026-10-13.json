@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13",
+  "provider": "Nebius Token Factory",
+  "model": "nvidia/Nemotron-3_5-Lightning",
+  "smoke_test": {
+    "http_status": 200,
+    "latency_seconds": 0.956,
+    "usage": {"prompt_tokens": 22, "completion_tokens": 16, "total_tokens": 38}
+  },
+  "end_to_end_loopback_demo": {
+    "safety": "All executed probes were whitelist-only HTTP requests to 127.0.0.1.",
+    "cases": [
+      {"truth": "database", "prediction": "database", "correct": true, "confidence": 0.960396, "steps": 2, "fallback_steps": [false, false], "probes": ["queue_probe", "dependency_probe"], "latency_seconds": 43.077},
+      {"truth": "queue", "prediction": "queue", "correct": true, "confidence": 0.960396, "steps": 1, "fallback_steps": [false], "probes": ["queue_probe"], "latency_seconds": 18.013},
+      {"truth": "dependency", "prediction": "dependency", "correct": true, "confidence": 0.97939, "steps": 2, "fallback_steps": [false, false], "probes": ["queue_probe", "dependency_probe"], "latency_seconds": 38.795}
+    ],
+    "summary": {"correct": 3, "total": 3, "fallback_steps": 0}
+  },
+  "interpretation": "This validates the hosted Nebius/Nemotron runtime path. It does not change or re-tune the frozen confirmatory planner benchmark and must not be presented as evidence that Nemotron caused the 22/30 confirmatory result."
+}

@@ -1,0 +1,23 @@
+{
+  "frozen_before_train_ticket_outcomes": true,
+  "frozen_date": "2026-10-13",
+  "target": "root_service_localization",
+  "dataset": "RCAEval RE2 Train Ticket via BLAST",
+  "split_source": "config/splits/split_re2tt_v1.yaml",
+  "probe_selection_rule": "five highest-volume journey signatures from re2tt_journey_signature_catalog_full.csv; selection uses trace volume only, not impairment outcomes",
+  "probes": [
+    "POST /api/v1/users/login (direct)",
+    "POST /api/v1/travel2service/trips/left (direct)",
+    "POST /api/v1/travelservice/trips/left (direct)",
+    "GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId} (direct)",
+    "GET /api/v1/adminbasicservice/adminbasic/prices (direct)"
+  ],
+  "outcome_mode": "ternary",
+  "ternary_definition": "not impaired / impaired magnitude <= training-only positive median / impaired magnitude > training-only positive median",
+  "insufficient_data_policy": "missing",
+  "dirichlet_alpha": 0.5,
+  "probe_budget": 3,
+  "active_objective": "expected Bayes classification-error reduction",
+  "baselines": ["static learned probe order", "exact mean over all 5! fixed probe orders"],
+  "no_retuning_after_result": true
+}

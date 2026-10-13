@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "provider": "Nebius Token Factory",
+  "model": "nvidia/Nemotron-3_5-Lightning",
+  "configuration": {"response_format": "json_object", "max_tokens": 224, "enable_thinking": false, "temperature": 0.0},
+  "safety": "All executed probes were whitelist-only HTTP requests to 127.0.0.1.",
+  "cases": [
+    {"truth": "database", "prediction": "database", "correct": true, "confidence": 0.960396, "steps": 2, "fallback_steps": [false, false], "latency_seconds": 6.891, "probe_sequence": ["queue_probe", "dependency_probe"], "nemotron_call_latency_seconds": [2.560, 3.825]},
+    {"truth": "queue", "prediction": "queue", "correct": true, "confidence": 0.960396, "steps": 1, "fallback_steps": [false], "latency_seconds": 3.508, "probe_sequence": ["queue_probe"], "nemotron_call_latency_seconds": [3.005]},
+    {"truth": "dependency", "prediction": "dependency", "correct": true, "confidence": 0.979390, "steps": 2, "fallback_steps": [false, false], "latency_seconds": 4.674, "probe_sequence": ["queue_probe", "dependency_probe"], "nemotron_call_latency_seconds": [2.106, 2.065]}
+  ],
+  "summary": {"correct": 3, "total": 3, "fallback_steps": 0, "mean_end_to_end_latency_seconds": 5.024, "previous_mean_end_to_end_latency_seconds": 33.295, "mean_latency_reduction_percent": 84.91, "all_calls_http_200": true, "all_calls_finish_reason_stop": true, "all_calls_reasoning_tokens_zero": true},
+  "interpretation": "This validates the hosted Nebius/Nemotron runtime path and low-latency structured-output configuration. It does not alter, retune, or causally explain the frozen 22/30 Train Ticket confirmatory planner result."
+}

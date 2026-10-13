@@ -1,0 +1,18 @@
+{
+  "status": "frozen_confirmatory_run",
+  "dataset": "RCAEval RE2 Train Ticket via BLAST",
+  "frozen_configuration_file": "CONFIRMATORY_FREEZE_2026-10-13.json",
+  "n_train_cases": 60,
+  "n_test_cases": 30,
+  "positive_magnitude_threshold_training_only": 0.6873732207000496,
+  "active_accuracy": 0.7333333333333333,
+  "static_accuracy": 0.6,
+  "random_order_mean_accuracy": 0.5366666666666666,
+  "random_order_min_accuracy": 0.36666666666666664,
+  "random_order_max_accuracy": 0.7,
+  "active_only_correct": 4,
+  "static_only_correct": 0,
+  "mcnemar_exact_two_sided_p": 0.125,
+  "bootstrap95_active_minus_static": [0.03333333333333333, 0.26666666666666666],
+  "interpretation": "Confirmatory direction is positive, but n=30 is too small for a definitive paired significance claim. Configuration was frozen before viewing Train Ticket outcomes."
+}
