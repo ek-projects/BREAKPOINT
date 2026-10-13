@@ -2,6 +2,10 @@
 
 **Evidence-driven active root-cause diagnosis with Nebius Token Factory and NVIDIA Nemotron.**
 
+**Live demo:** https://breakpoint-nebius.onrender.com
+
+**Source:** https://github.com/ek-projects/BREAKPOINT
+
 BREAKPOINT diagnoses reliability incidents by choosing the **next diagnostic probe that is expected to reduce uncertainty the most**, instead of blindly running a fixed runbook. NVIDIA Nemotron proposes a grounded shortlist from a safety-approved probe registry; a deterministic Bayesian planner keeps final authority over which probe is executed.
 
 ## Why this exists
@@ -83,7 +87,8 @@ Synthetic stress tests also exercise online calibration and drift detection. The
 The project uses Python's standard library for the core and demo.
 
 ```bash
-python -m unittest discover -s tests -v
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
 python confirmatory_tt_benchmark.py   # requires the documented RCAEval/BLAST inputs
 ```
 
@@ -101,6 +106,8 @@ The reconstructed server working tree currently passes **9 regression tests**. T
 - `external_tt_confirmatory_results.json` — held-out Train Ticket results
 - `live_nebius_onecall_validation_2026-10-13.json` — current hosted one-call runtime validation
 - `tests/` — unit and integration tests
+- `.github/workflows/ci.yml` — public CI on Python 3.11 and 3.14
+- `render.yaml` — reproducible Render deployment blueprint; API key remains an external secret
 
 ## Safety
 
